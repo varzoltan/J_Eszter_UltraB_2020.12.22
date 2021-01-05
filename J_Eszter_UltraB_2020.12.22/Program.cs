@@ -41,6 +41,41 @@ namespace J_Eszter_UltraB_2020._12._22
             //3.feladat
             Console.WriteLine($"3. feladat: Egyéni indulók: {n} fő");
 
+            //4.feladat
+            int noi_sportolo = 0;          
+            for (int i = 0;i<n;i++)
+            {
+                if (adatok[i].kategoria == "Noi" && adatok[i].tavszazalek == 100)
+                {
+                    noi_sportolo++;
+                }
+            }
+            Console.WriteLine($"4.feladat: Célba érkező női sportolók: {noi_sportolo} fő");
+
+            //5.feladat
+            Console.Write("5. feladat: Kérem adja meg az induló nevét!: ");
+            string indulo = Console.ReadLine();
+            bool volt = false;
+            for (int i = 0; i<n; i++)
+            {
+                if (indulo == adatok[i].nev)
+                {
+                    volt = true;
+                    Console.WriteLine("\tIndult egyéniben a sportoló? Igen");
+                    if (adatok[i].tavszazalek == 100)
+                    {
+                        Console.WriteLine("\tTeljesítette a távot? Igen");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\tTeljesítette a távot? Nem");
+                    }
+                }
+            }
+            if (!volt)
+            {
+                Console.WriteLine($"Nincs ilyen induló.");
+            }
             Console.ReadKey();
         }
     }
