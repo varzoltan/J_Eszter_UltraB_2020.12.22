@@ -76,7 +76,28 @@ namespace J_Eszter_UltraB_2020._12._22
             {
                 Console.WriteLine($"Nincs ilyen induló.");
             }
+
+            //7.feladat
+            int szamlalo = 0;
+            double idoosszeg = 0;
+            for (int i = 0; i<n; i++)
+            {
+                if (adatok[i].kategoria == "Ferfi" && adatok[i].tavszazalek == 100)
+                {
+                     idoosszeg += IdőÓrában(adatok[i].ido);
+                    szamlalo++;
+                }
+            }
+            Console.WriteLine($"7. feladat: Átlagos idő: {idoosszeg/szamlalo} óra");
             Console.ReadKey();
+        }
+
+        //6.feladat
+        static double IdőÓrában(string ora)
+        {
+            string[] db = ora.Split(':');
+
+            return int.Parse(db[0]) + (double) int.Parse(db[1]) / 60 + (double) int.Parse(db[2]) / 3600;
         }
     }
 }
