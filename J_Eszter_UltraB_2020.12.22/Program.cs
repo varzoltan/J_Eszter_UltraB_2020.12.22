@@ -89,6 +89,48 @@ namespace J_Eszter_UltraB_2020._12._22
                 }
             }
             Console.WriteLine($"7. feladat: Átlagos idő: {idoosszeg/szamlalo} óra");
+
+            //8.feladat
+            double min = IdőÓrában(adatok[0].ido);
+            double ferfi = IdőÓrában(adatok[0].ido);
+            int j = 0;
+            int l = -1;
+            for (int i =0; i<n; i++) 
+            { 
+                if (adatok[i].kategoria == "Noi" && adatok[i].tavszazalek == 100) 
+                { 
+                    if (min > IdőÓrában(adatok[i].ido)) 
+                    {
+                        min =  IdőÓrában(adatok[i].ido);
+                        j = i;
+                    }
+                }
+
+                if (adatok[i].kategoria == "Ferfi" && adatok[i].tavszazalek == 100)
+                {
+                    if (ferfi > IdőÓrában(adatok[i].ido))
+                    {
+                        ferfi = IdőÓrában(adatok[i].ido);
+                        l = i;
+                    }
+                }
+            }
+            Console.WriteLine($"8. feladat: Verseny győztesei");
+            Console.WriteLine($"\tNők: {adatok[j].nev} ({adatok[j].rajtszam}.) - {adatok[j].ido}");
+            Console.WriteLine($"\tFérfiak: {adatok[l].nev} ({adatok[l].rajtszam}.) - {adatok[l].ido}");
+
+            /*for (int i = 0; i < n; i++)
+            {
+                if (adatok[i].kategoria == "Ferfi" && adatok[i].tavszazalek == 100)
+                {
+                    if (min > IdőÓrában(adatok[i].ido))
+                    {
+                        min = IdőÓrában(adatok[i].ido);
+                        l = i;
+                    }
+                }
+            }*/
+
             Console.ReadKey();
         }
 
@@ -96,8 +138,7 @@ namespace J_Eszter_UltraB_2020._12._22
         static double IdőÓrában(string ora)
         {
             string[] db = ora.Split(':');
-
-            return int.Parse(db[0]) + (double) int.Parse(db[1]) / 60 + (double) int.Parse(db[2]) / 3600;
+            return double.Parse(db[0]) + double.Parse(db[1]) / 60 + double.Parse(db[2]) / 3600;
         }
     }
 }
